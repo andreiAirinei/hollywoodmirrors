@@ -76,14 +76,6 @@ const Styled = styled.div`
         }
       }
     }
-
-    nav {
-      // position: absolute;
-      // top: 0;
-      // left: 0;
-      // height: 400px;
-      // width: 100%;
-    }
   }
 `;
 export default Styled;

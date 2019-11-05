@@ -9,7 +9,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const CustomNavbar = () => {
   return (
     <Styled>
-      {console.log('rendered')}
       <Navbar expand='lg'>
         <Container>
           <Navbar.Brand href='#'>HOLLYWOOD MIRRORS</Navbar.Brand>
