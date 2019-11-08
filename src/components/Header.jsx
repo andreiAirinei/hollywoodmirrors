@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Banner from './Banner';
 import CustomNavbar from './CustomNavbar';
 import styled from 'styled-components';

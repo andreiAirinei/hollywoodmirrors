@@ -52,6 +52,7 @@ const Banner = () => (
           <img
             src={require('../assets/white-rating-stars.png')}
             className='mr-2 pb-1'
+            alt='Rating Stars'
           ></img>
           AWARD WINNING SERVICE
         </Col>

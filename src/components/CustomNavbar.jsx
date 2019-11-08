@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import Styled from './CustomNavbar.styles';
+import React from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
+import Styled, { CustomLink } from './CustomNavbar.styles';
+
+// import { Link } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,19 +14,29 @@ const CustomNavbar = () => {
     <Styled>
       <Navbar expand='lg'>
         <Container>
-          <Navbar.Brand href='#'>HOLLYWOOD MIRRORS</Navbar.Brand>
+          <Navbar.Brand href='/'>HOLLYWOOD MIRRORS</Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
               <NavDropdown title='HOLLYWOOD MIRRORS'>
-                <NavDropdown.Item href='#'>TABLE TOP</NavDropdown.Item>
-                <NavDropdown.Item href='#'>WALL MOUNTED</NavDropdown.Item>
+                <LinkContainer to='/shop/collections/hollywood-mirrors'>
+                  <NavDropdown.Item>VIEW ALL MIRRORS</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to='/shop/collections/table-top'>
+                  <NavDropdown.Item>TABLE TOP</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to='/shop/collections/wall-mounted'>
+                  <NavDropdown.Item>WALL MOUNTED</NavDropdown.Item>
+                </LinkContainer>
               </NavDropdown>
-              <Nav.Link href='#link'>BATHROOM</Nav.Link>
-              <Nav.Link href='#link'>MAKEUP DESKS</Nav.Link>
-              <Nav.Link href='#link'>LIGHT BULBS</Nav.Link>
+              <CustomLink to='/shop/bathroom'>BATHROOM</CustomLink>
+              <CustomLink to='/shop/makeup-desks'>MAKEUP DESKS</CustomLink>
+              <CustomLink to='/shop/lightbulbs'>LIGHT BULBS</CustomLink>
               <div className='cart-icon'>
-                <img src={require('../assets/shopping-cart.png')} />
+                <img
+                  src={require('../assets/shopping-cart.png')}
+                  alt='Shopping Cart Icon'
+                />
               </div>
             </Nav>
           </Navbar.Collapse>

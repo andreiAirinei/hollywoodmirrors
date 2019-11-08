@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Hero from '../components/Hero';
 import BannerHome from '../components/BannerHome';
 import CollectionsPreview from '../components/CollectionsPreview';
+import FeefoRatings from '../components/FeefoRatings';
+import BestSellers from '../components/BestSellers';
 
 import Container from 'react-bootstrap/Container';
 
@@ -24,6 +26,8 @@ const HomePage = () => {
       <Hero />
       <Container>
         <CollectionsPreview />
+        <FeefoRatings />
+        <BestSellers />
       </Container>
     </Fragment>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import img from '../assets/hero-image.jpg';
 
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import Button from 'react-bootstrap/Button';
 
 const Hero = () => (
   <Jumbo fluid>
@@ -12,7 +12,7 @@ const Hero = () => (
       <p>Feel and Look Great</p>
       <p>Every Day</p>
       <p>
-        <Button variant='primary'>SHOP NOW</Button>
+        <Link to='/shop/collections/hollywood-mirrors'>SHOP NOW</Link>
       </p>
     </div>
   </Jumbo>
@@ -35,13 +35,16 @@ const Jumbo = styled(Jumbotron)`
       font-weight: bold;
     }
 
-    button {
+    a {
+      border-radius: 3px;
+      text-decoration: none;
+      text-shadow: none;
       font-size: 1.3vw;
       font-weight: bold;
       background: #fff;
       color: #000;
       border: none;
-      padding: 15px 30px;
+      padding: 15px 50px;
       pointer: cursor;
 
       &:hover {

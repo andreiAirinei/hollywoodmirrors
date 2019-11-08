@@ -1,4 +1,10 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const CustomLink = styled(Link)`
+  margin: 0;
+  padding: 10px 0;
+`;
 
 const Styled = styled.div`
   background: #f9f4f1;
@@ -40,10 +46,12 @@ const Styled = styled.div`
   }
 
   #basic-navbar-nav > div > a,
-  #basic-navbar-nav > div > div > a {
+  #basic-navbar-nav > div > div > a,
+  .link-tags {
     color: #090909;
     margin: 0 7px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
     position: relative;
     transition: 0.1s linear;
 
