@@ -31,7 +31,7 @@ const CustomNavbar = () => {
               </NavDropdown>
               <CustomLink to='/shop/bathroom'>BATHROOM</CustomLink>
               <CustomLink to='/shop/makeup-desks'>MAKEUP DESKS</CustomLink>
-              <CustomLink to='/shop/lightbulbs'>LIGHT BULBS</CustomLink>
+              <CustomLink to='/'>LIGHT BULBS</CustomLink>
               <div className='cart-icon'>
                 <img
                   src={require('../assets/shopping-cart.png')}

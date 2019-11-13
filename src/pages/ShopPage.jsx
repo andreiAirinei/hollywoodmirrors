@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import Container from 'react-bootstrap/Container';
+import Container from "react-bootstrap/Container";
 
 const StyledContainer = styled(Container)`
   padding-top: 150px;

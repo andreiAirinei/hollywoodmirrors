@@ -1,14 +1,13 @@
-import React, { Fragment } from 'react';
-import styled from 'styled-components';
+import React, { Fragment, lazy, Suspense } from "react";
+import styled from "styled-components";
 
 // Sections
-import Hero from '../components/Hero';
-import BannerHome from '../components/BannerHome';
-import CollectionsPreview from '../components/CollectionsPreview';
-import FeefoRatings from '../components/FeefoRatings';
-import BestSellers from '../components/BestSellers';
-
-import Container from 'react-bootstrap/Container';
+import Hero from "../components/Hero";
+import BannerHome from "../components/BannerHome";
+// import CollectionsPreview from '../components/CollectionsPreview';
+import FeefoRatings from "../components/FeefoRatings";
+// import BestSellers from '../components/BestSellers';
+import Container from "react-bootstrap/Container";
 
 const StyledContainer = styled(Container)`
   padding-top: 150px;
@@ -16,6 +15,15 @@ const StyledContainer = styled(Container)`
     padding-top: 180px;
   }
 `;
+// const BannerHome = lazy(() => import('../components/BannerHome'));
+// const Hero = lazy(() => import('../components/Hero'));
+// const CollectionsPreview = lazy(() =>
+//   import('../components/CollectionsPreview')
+// );
+const CollectionsPreview = lazy(() =>
+  import("../components/CollectionsPreview")
+);
+const BestSellers = lazy(() => import("../components/BestSellers"));
 
 const HomePage = () => {
   return (
@@ -25,9 +33,14 @@ const HomePage = () => {
       </StyledContainer>
       <Hero />
       <Container>
-        <CollectionsPreview />
+        <Suspense fallback={<h3>Loading...</h3>}>
+          <CollectionsPreview />
+        </Suspense>
         <FeefoRatings />
-        <BestSellers />
+        {/* Solved double rendering with Lazy */}
+        <Suspense fallback={<h3>Loading...</h3>}>
+          <BestSellers />
+        </Suspense>
       </Container>
     </Fragment>
   );
