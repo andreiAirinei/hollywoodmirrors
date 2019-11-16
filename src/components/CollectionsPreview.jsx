@@ -15,7 +15,6 @@ const CollectionsPreview = () => {
   console.log("Rendered @ CollectionsPreview");
 
   const { client } = useContext(ClientContext);
-  console.log(client);
 
   const [collections, setCollections] = useState([]);
 
@@ -29,26 +28,27 @@ const CollectionsPreview = () => {
           el.title === "Table top"
       );
       setCollections(filteredCollections);
-      console.log("Collections -> ", filteredCollections);
     });
-  }, []);
+  }, [client]);
 
   return (
     <StyledRow>
-      {collections.map(collection => {
-        return (
-          // Confused why does the Column need a key and not the CollectionItem
-          // CollectionItem without key still works
-          <Column xs="12" md="4" key={collection.id.toString()}>
-            <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<h1>Loading...</h1>}>
+        {collections.map(collection => {
+          return (
+            // Confused why does the Column need a key and not the CollectionItem
+            // CollectionItem without key still works
+            <Column xs="12" md="4" key={collection.id.toString()}>
               <CollectionsItem
                 key={collection.id.toString()}
-                collection={collection}
+                collectionHandle={collection.handle}
+                image={collection.image.src}
+                title={collection.title}
               />
-            </Suspense>
-          </Column>
-        );
-      })}
+            </Column>
+          );
+        })}
+      </Suspense>
     </StyledRow>
   );
 };

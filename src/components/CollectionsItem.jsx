@@ -1,17 +1,20 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 // Bootstrap
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-const CollectionsItem = ({ collection }) => {
+const CollectionsItem = ({ history, collectionHandle, image, title }) => {
   return (
-    <StyledCard className="item-hover">
-      {/* <Card.Img variant='top' src={require('../assets/feature1.webp')} /> */}
-      <Card.Img variant="top" src={collection.image.src} />
+    <StyledCard
+      className="item-hover"
+      onClick={() => history.push(`shop/${collectionHandle}`)}
+    >
+      <Card.Img variant="top" src={image} />
       <Card.Body>
-        <Card.Title className="title">{collection.title}</Card.Title>
+        <Card.Title className="title">{title}</Card.Title>
         <Card.Text className="type">MIRRORS</Card.Text>
         <Button variant="danger">SHOP NOW</Button>
       </Card.Body>
@@ -19,7 +22,7 @@ const CollectionsItem = ({ collection }) => {
   );
 };
 
-export default CollectionsItem;
+export default withRouter(CollectionsItem);
 
 const StyledCard = styled(Card)`
   width: 100%;

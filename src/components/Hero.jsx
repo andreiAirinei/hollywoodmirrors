@@ -1,18 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import img from '../assets/hero-image.jpg';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import img from "../assets/hero-image.jpg";
 
-import Jumbotron from 'react-bootstrap/Jumbotron';
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 const Hero = () => (
   <Jumbo fluid>
-    <div className='hero-text'>
+    <div className="hero-text">
       <h1>UK's #1 HOLLYWOOD MIRROR BRAND</h1>
       <p>Feel and Look Great</p>
       <p>Every Day</p>
       <p>
-        <Link to='/shop/collections/hollywood-mirrors'>SHOP NOW</Link>
+        <Link to="/shop/all">SHOP NOW</Link>
       </p>
     </div>
   </Jumbo>

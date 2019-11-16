@@ -7,6 +7,7 @@ import BannerHome from "../components/BannerHome";
 // import CollectionsPreview from '../components/CollectionsPreview';
 import FeefoRatings from "../components/FeefoRatings";
 // import BestSellers from '../components/BestSellers';
+
 import Container from "react-bootstrap/Container";
 
 const StyledContainer = styled(Container)`

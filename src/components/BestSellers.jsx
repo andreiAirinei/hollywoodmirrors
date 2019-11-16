@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 // Contexts
@@ -9,7 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
-const BestSellers = () => {
+const BestSellers = ({ history }) => {
   console.log("Rendered @ BestSellers");
 
   const { client } = useContext(ClientContext);
@@ -32,7 +33,7 @@ const BestSellers = () => {
         products: collection.products
       });
     });
-  }, []);
+  }, [client]);
 
   const handleProductTitle = title => {
     const titleArray = title.split(" ");
@@ -41,7 +42,8 @@ const BestSellers = () => {
 
   return (
     <Styled>
-      <h1>{`${collectionTitle}`}</h1>
+      <h1 className="text-center mb-5">{`${collectionTitle}`}</h1>
+
       <Row>
         {products.map(product => {
           return (
@@ -51,6 +53,11 @@ const BestSellers = () => {
                   variant="top"
                   src={product.images[0].src}
                   className="item-hover"
+                  onClick={() =>
+                    history.push(
+                      `/shop/${product.variableValues.handle}/${product.handle}`
+                    )
+                  }
                 />
                 <Card.Body className="body">
                   <Card.Title className="title">
@@ -67,7 +74,7 @@ const BestSellers = () => {
   );
 };
 
-export default BestSellers;
+export default withRouter(BestSellers);
 
 const Styled = styled.div`
   margin-top: 150px;
@@ -102,6 +109,10 @@ const Styled = styled.div`
         flex-direction: column;
         justify-content: space-between;
       }
+    }
+
+    img {
+      max-height: 350px;
     }
   }
 `;
